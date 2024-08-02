@@ -31,7 +31,7 @@
 	background-image: -webkit-linear-gradient(300deg,#55B4E7 0%,#B078B1 16%,#F9C065 32%,#55B4E7 48%,#B078B1 64%,#F9C065 80%, #55B4E7 96%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    -webkit-background-size: 200% 100%;
+    -webkit-background-size: 300% 100%;
     -webkit-animation:  maskedAnimation 6s infinite linear;
 }
 
@@ -40,7 +40,7 @@
     background-position: 0 0;
 	}
 	100% {
-	    background-position: 100% 0;
+	    background-position: 150% 0;
 	}
 }
 </style>
