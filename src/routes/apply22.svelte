@@ -78,7 +78,8 @@
 <div class="pt-20 mb-52 w-full flex flex-col justify-between items-center">
 	<Tab bind:sections on:click={tabOnClick} />
 	{#if sections[0]?.current}
-		<Guide />
+		<!-- <Guide /> -->
+		<PickInterviewer />
 	{/if}
 	{#if sections[1]?.current}
 		<PickInterviewer />
