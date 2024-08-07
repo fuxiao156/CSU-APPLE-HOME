@@ -4,7 +4,7 @@
 	import CardTitleBlock from '../card/CardTitleBlock.svelte';
 	import CopyArea from './CopyArea.svelte';
 	import SignalArea from './SignalArea.svelte';
-	import { InformationCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
+	import { InformationCircleIcon, ChevronDoubleDownIcon } from '@rgossiaux/svelte-heroicons/outline';
 	export let avatar = 'apply/undraw_profile_pic_ic-5-t.svg';
 	export let intros: string[] = [];
 	export let code: string = '';
@@ -49,7 +49,8 @@
 		<SignalArea str={code} />
 	{/if}
 	{#if ifShowTags}
-		<div class="bg-slate-50 absolute h-[80%] w-full bottom-0 p-4 flex justify-center tag-box" transition:fly={{ duration: 200, y:100 }}>
+		<div class="bg-slate-50 absolute h-[80%] w-full bottom-0 p-4 pt-2 flex flex-col justify-start items-center tag-box" transition:fly={{ duration: 200, y:100 }}>
+			<ChevronDoubleDownIcon on:click={()=>{ifShowTags = !ifShowTags}} class="w-5 h-5 mb-2 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />    
 			<div class="flex gap-2 justify-center flex-wrap">
 				{#each tags as tag (tag.name)}
 					<div class="select-item {tag.selected?'selected-item':''}" >
@@ -83,6 +84,5 @@
 	}
 	.tag-box{
 		box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.132);
-		align-items: start;
 	}
 </style>
