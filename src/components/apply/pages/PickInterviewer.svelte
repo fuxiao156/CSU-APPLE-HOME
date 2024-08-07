@@ -17,8 +17,10 @@
 		ifShowMatchTable = false;
 		matchComplete = false;
 		setTimeout(() => {
-			matchComplete = true;
 			loading = false;
+			setTimeout(() => {
+				matchComplete = true;
+			}, 200);
 		}, 300);
 		window.scrollTo({ behavior: 'smooth', top: 0 });
 	}

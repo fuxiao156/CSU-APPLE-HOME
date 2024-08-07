@@ -60,6 +60,8 @@
                 if(selectItem.has(tag.name)){
                     tag.selected = true;
                     count++;
+                }else{
+                    tag.selected = false;
                 }
             });
             interviewer.tags.sort((a,b) => {
