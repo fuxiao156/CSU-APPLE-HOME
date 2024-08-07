@@ -33,7 +33,7 @@
 </div>
 <div class="pick-view-match-button" on:click={showMatchTable}>契合度匹配</div>
 {#if ifShowMatchTable}
-	<MatchTable  on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
+	<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
 {/if}
 
 <style lang="scss">
