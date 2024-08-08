@@ -5,6 +5,8 @@
     import MatchCard from "./MatchCard.svelte";
     import { options, interviewers } from "./options";
     import { createEventDispatcher } from 'svelte';
+    import { onMount } from 'svelte';
+	import { on } from 'ramda';
     const dispatch = createEventDispatcher();
 
     let showIndex = 0;
@@ -69,7 +71,7 @@
                     return b.selected ? 1 : -1;
                 }
                 // 如果 a.selected 和 b.selected 相同,返回 0
-                return 0;
+                    return 0;
             });
             interviewer.matchCount = count;
         });
@@ -86,7 +88,7 @@
         <div class="flex justify-between items-center w-full">
             <div class="flex justify-start items-center gap-1">
                 <ToolTip text="{showIndex<0?"":options[showIndex].describe}" position="bottom">
-                <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+                    <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
                 </ToolTip>
                 <div class="transition duration-100 ease-linear {showIndex<0?"opacity-0":"opacity-100"}">&nbsp{showIndex<0?"":"请选择你的"+options[showIndex].title}</div>
             </div>
@@ -216,12 +218,16 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      width: 350px;
+      width: 90%;
       background-color: white;
       border-radius: 20px;
       box-shadow: 0 0 60px 1px rgba(0, 0, 0, 0.4);
       padding: 20px 15px;
       height: 500px;
+    }
+
+    .close-icon:hover{
+        transition: none;
     }
   }
 </style>

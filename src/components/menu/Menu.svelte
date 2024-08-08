@@ -18,13 +18,11 @@
 	<PopoverPanel on:click={() => close(null)}>
 		<div
 			transition:fade
-			class="z-50 fixed w-screen h-screen top-9 right-0 my-backdrop-blur p-5 flex flex-col gap-5"
+			class="z-50 fixed w-screen items-center top-9 right-0 p-5 flex flex-col gap-5"
 		>
-			<div class="menuItem">
-				{#each items as item}
-					<Item href={item.href}>{item.tag}</Item>
-				{/each}
-			</div>
+			{#each items as item}
+				<Item href={item.href}>{item.tag}</Item>
+			{/each}
 		</div>
 	</PopoverPanel>
 </Popover>
@@ -37,11 +35,3 @@
 {/each}
 </div>
 
-<style lang="scss">
-	@media screen and (max-width: 768px) {
-
-	}
-	.menuItem{
-		background-color: white;
-	}
-</style>

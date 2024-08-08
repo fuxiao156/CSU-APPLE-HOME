@@ -2,14 +2,23 @@
     import { fly } from 'svelte/transition';
     export let text = "";
     export let position = "top";
-    
+    //检测是否为移动设备
+    function isMobileDevice() {
+        return (
+            /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+            'ontouchstart' in window ||
+            navigator.maxTouchPoints > 0
+        );
+    }
+
+    let isMobileDeviceFlag = isMobileDevice();
     let visible = false;
 </script>
 
 <div 
     class="tooltip-container" 
-    on:mouseover={() => visible = true} 
-    on:mouseleave={() => visible = false}
+    on:mouseover={() => { if(!isMobileDeviceFlag) visible = true }} 
+    on:mouseleave={() => { if(!isMobileDeviceFlag) visible = false }}
     on:click={() => visible = !visible}
 >
     <slot></slot>
@@ -42,13 +51,13 @@
     .tooltip-text.top {
         bottom: 125%;
         left: 50%;
-        margin-left: -60px;
+        margin-left: -40%;
     }
 
     .tooltip-text.bottom {
         top: 125%;
         left: 50%;
-        margin-left: -60px;
+        margin-left: -40%;
     }
 
     .tooltip-text.left {
