@@ -34,11 +34,11 @@
 			>
 				<CardTitleBlock>
 					<div class="flex flex-col lg:flex-row justify-center items-center gap-5">
-						<h1 class="text-3xl truncate">iOSClub 22届招新</h1>
+						<h1 class="text-3xl truncate">iOSClub 23届招新</h1>
 					</div>
 				</CardTitleBlock>
 				<CardContextBlock>
-					<a href="/apply22">
+					<a href="/apply23">
 						<button class="z-10 bg-blue-500 w-32 h-10 rounded-3xl text-white"> 申请 </button>
 					</a>
 				</CardContextBlock>
@@ -51,7 +51,7 @@
 			<CardContextBlock>
 				<h1 class="font-bold">我们在找的你🤝</h1>
 				<ul>
-					<li>1. 是中南大学22级的同学</li>
+					<li>1. 是中南大学23级的同学</li>
 					<li>2. 对技术有着一定热情</li>
 					<li>3. 觉得自己的想法十分独特, 愿意将想法付诸行动</li>
 					<li>4. 想认识其他同样独特的人</li>
