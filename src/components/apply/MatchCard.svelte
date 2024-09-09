@@ -21,26 +21,24 @@
 
 <style lang="scss">
     .select-item{
-        text-align: center;
-        width: 100px;
-        height: 40px;
-        line-height: 40px;
-        background-color: #F2F3F5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+        background-image: url('/apply/cloud.png');
+      background-size: 130px 100px;
+      width: 130px;
+      height: 100px;
       color: #4E5969;
-        border-radius: 5px;
         transition: all linear 0.2s;
         cursor: pointer;
 
         &:hover{
-          background-color: white;
-          color: #165DFF;
-          border: 1px solid #165DFF;
+
         }
     }
 
     .item-selected{
-        background-color: #165DFF !important;
-        color: white !important;
+
     }
 
 </style>
