@@ -61,6 +61,8 @@
 		</div>
 	{/if}
 </div>
+<br />
+
 <style lang="scss">
 	.select-item{
 		text-align: center;

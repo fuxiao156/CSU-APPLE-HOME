@@ -39,62 +39,98 @@ export const options:{ title: string, describe: string, options: { name: string,
 ];
 
 export const interviewers:{ code: string; avatar?: string; intros: string[], Signal?: boolean, tags:{ name: string, selected: boolean }[], matchCount: number}[]=[
-        {
-			code: 'EEE',
-			avatar: 'apply/interviewer/EEE.png',
-			intros: ['我可以和你聊聊前端，开源和FPS'],//DONE
-            tags: [
-                {name: '前端', selected: false},
-                {name: '开源', selected: false},
-                {name: 'FPS', selected: false},
-            ],
-            matchCount: 0,
-		},
-		{
-			code: 'Forrest',
-			avatar: 'apply/interviewer/Forrest.png',
-			intros: ['我们可以交流一下后端，嵌入式和羽毛球'],//DONE
-            tags:[
-                {name: '后端', selected: false},
-                {name: '嵌入式', selected: false},
-                {name: '羽毛球', selected: false},
-            ],
-            matchCount: 0,
-		},
-		{
-			code: 'Naux',
-			avatar: 'apply/interviewer/Naux.png',
-			intros: ['我可以和你聊聊游戏开发，交互设计和干饭'],//DONE
-            tags:[
-                {name: '游戏开发', selected: false},
-                {name: '交互设计', selected: false},
-                {name: '干饭', selected: false},
-            ],
-            matchCount: 0,
-		},
-		{
-			code: 'Grant',
-			avatar: 'apply/interviewer/Grant.png',//todo
-			intros: ['我可以和你聊聊可视化，数模建模和摇滚'],
-            tags:[
-                {name: '可视化', selected: false},
-                {name: '数模建模', selected: false},
-                {name: '摇滚', selected: false},
-            ],
-            matchCount: 0,
-		},
-		{
-			code: 'indexss',
-			avatar: 'apply/interviewer/indexss.png',
-			intros: ['我可以和你聊聊AI，深度学习，留学和电子产品'],//DONE
-            tags:[
-                {name: 'AI', selected: false},
-                {name: '深度学习', selected: false},
-                {name: '留学', selected: false},
-                {name: '电子产品', selected: false},
-            ],
-            matchCount: 0,
-		},
+    {
+        code: 'Mr.Y',
+        avatar: 'apply/interviewer/Y.jpg',
+        intros: ['我可以和你聊聊智能体、创业和台球','我的MBTI为 : ENFJ'],//DONE
+        tags: [
+            {name: '前端', selected: false},
+            {name: '开源', selected: false},
+            {name: 'FPS', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: '007',
+        avatar: 'apply/interviewer/007.jpg',
+        intros: ['我可以和你聊聊深度学习、大模型、保研、科研与麻将','我的MBTI为 : ISTJ'],//DONE
+        tags:[
+            {name: '后端', selected: false},
+            {name: '嵌入式', selected: false},
+            {name: '羽毛球', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: 'Jing',
+        avatar: 'apply/interviewer/Jing.jpg',
+        intros: ['我可以和你聊聊计算机视觉、深度强化学习、历史与时政','我的MBTI为 : ISTJ'],//DONE
+        tags:[
+            {name: '游戏开发', selected: false},
+            {name: '交互设计', selected: false},
+            {name: '干饭', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: 'Leslie',
+        avatar: 'apply/interviewer/Les.jpg',//todo
+        intros: ['我可以和你聊聊开源、System、西洋棋与魔术','我的MBTI为 : INTP'],
+        tags:[
+            {name: '可视化', selected: false},
+            {name: '数模建模', selected: false},
+            {name: '摇滚', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: 'Zency',
+        avatar: 'apply/interviewer/zency.jpg',
+        intros: ['我可以和你聊聊前端、逆向、项目、就业、番剧与漫画','我的MBTI为 :INTJ '],//DONE
+        tags:[
+            {name: 'AI', selected: false},
+            {name: '深度学习', selected: false},
+            {name: '留学', selected: false},
+            {name: '电子产品', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: 'DKK',
+        avatar: 'apply/interviewer/DKK.jpg',
+        intros: ['我可以和你聊聊前端、交互设计、项目、就业、MOBA游戏与麻将','我的MBTI为 : INFJ'],//DONE
+        tags:[
+            {name: 'AI', selected: false},
+            {name: '深度学习', selected: false},
+            {name: '留学', selected: false},
+            {name: '电子产品', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: 'TT',
+        avatar: 'apply/interviewer/TT.jpg',
+        intros: ['我可以和你聊聊流量管理、乒乓球','我的MBTI为 : INTJ'],//DONE
+        tags:[
+            {name: 'AI', selected: false},
+            {name: '深度学习', selected: false},
+            {name: '留学', selected: false},
+            {name: '电子产品', selected: false},
+        ],
+        matchCount: 0,
+    },
+    {
+        code: 'HH',
+        avatar: 'apply/interviewer/HH.jpg',
+        intros: ['我可以和你聊聊数据优化、旅游','我的MBTI为 : ESFJ'],//DONE
+        tags:[
+            {name: 'AI', selected: false},
+            {name: '深度学习', selected: false},
+            {name: '留学', selected: false},
+            {name: '电子产品', selected: false},
+        ],
+        matchCount: 0,
+    },
 		{
 			code: 'BarRaiser',
 			avatar: 'apply/interviewer/bar_raiser.png',
