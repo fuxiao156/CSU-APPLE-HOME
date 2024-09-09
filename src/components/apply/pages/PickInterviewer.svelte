@@ -26,31 +26,35 @@
 	}
 </script>
 
-<div transition:fly class="ml-10 mr-10 flex flex-col justify-center items-center gap-10 md:flex-row md:flex-wrap transition-all duration-300 {loading?'opacity-0':''}">
-	{#each interviewers as card (card.code)}
-		<Interviewer ifShowTags={matchComplete} avatar={card.avatar} code={card.code} intros={card.intros} tags={card.tags} SignalCopy={card.Signal}/>
-	{/each}
-</div>
 <div class="pick-view-match-button" on:click={showMatchTable}>契合度匹配</div>
 {#if ifShowMatchTable}
 	<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
 {/if}
 
+<div transition:fly class="ml-10 mr-10 flex flex-col justify-center items-center gap-10 md:flex-row md:flex-wrap transition-all duration-300 {loading?'opacity-0':''}">
+	{#each interviewers as card (card.code)}
+		<Interviewer ifShowTags={matchComplete} avatar={card.avatar} code={card.code} intros={card.intros} tags={card.tags} SignalCopy={card.Signal}/>
+	{/each}
+</div>
+
 <style lang="scss">
 	.pick-view-match-button{
-		margin-top: 40px;
-		width: 200px;
+		margin-bottom: 20px;
+		width: 150px;
 		height: 40px;
-		background-color: #f0f0f0;
-		border-radius: 20px;
+		border-radius: 5px;
+		background-color: white;
+		color: #165DFF;
+		border: 1px solid #165DFF;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		cursor: pointer;
-        transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.2s;
 
 		&:hover{
-			box-shadow: 0 0 60px 1px rgba(0, 0, 0, 0.4);
+			background-color: #165DFF;
+			color: white;
 		}
 	}
 </style>

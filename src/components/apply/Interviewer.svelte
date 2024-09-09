@@ -18,7 +18,7 @@
 	transition:fly={{duration: 400, x: 100}}
 	class="bg-slate-50 relative w-72 p-5 flex-grow-0 flex-shrink-0 rounded-lg flex flex-col justify-center items-center hover:shadow-lg transition-shadow duration-300 overflow-hidden"
 >
-	<InformationCircleIcon on:click={()=>{ifShowTags = !ifShowTags}} class="w-5 h-5 top-5 left-5 absolute cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />    
+	<InformationCircleIcon class="w-5 h-5 top-5 left-5 absolute cursor-pointer hover:text-blue-500 transition duration-300 ease-linear"/>
 	<CardTitleBlock>
 	{#if !SignalCopy}
 		<!-- <Img clazz="w-32 h-32 rounded-full" src={avatar} alt="avatar" /> -->
@@ -48,18 +48,18 @@
 	<h1 class="font-bold">代号</h1>
 		<SignalArea str={code} />
 	{/if}
-	{#if ifShowTags}
-		<div class="bg-slate-50 absolute h-[80%] w-full bottom-0 p-4 flex flex-col justify-between items-center tag-box" transition:fly={{ duration: 200, y:100 }}>
-			<div class="flex gap-2 justify-center flex-wrap">
-				{#each tags as tag (tag.name)}
-					<div class="select-item {tag.selected?'selected-item':''}" >
-						{tag.name}
-					</div>
-				{/each}
-			</div>
-			<ChevronDoubleDownIcon on:click={()=>{ifShowTags = !ifShowTags}} class="w-5 h-5 opacity-50 mb-2 cursor-pointer hover:text-blue-500 hover:mb-[4px] transition-all duration-300 ease-linear" />    
-		</div>
-	{/if}
+	<!--{#if ifShowTags}-->
+	<!--	<div class="bg-slate-50 absolute h-[80%] w-full bottom-0 p-4 flex flex-col justify-between items-center tag-box" transition:fly={{ duration: 200, y:100 }}>-->
+	<!--		<div class="flex gap-2 justify-center flex-wrap">-->
+	<!--			{#each tags as tag (tag.name)}-->
+	<!--				<div class="select-item {tag.selected?'selected-item':''}" >-->
+	<!--					{tag.name}-->
+	<!--				</div>-->
+	<!--			{/each}-->
+	<!--		</div>-->
+	<!--		<ChevronDoubleDownIcon on:click={()=>{ifShowTags = !ifShowTags}} class="w-5 h-5 opacity-50 mb-2 cursor-pointer hover:text-blue-500 hover:mb-[4px] transition-all duration-300 ease-linear" />    -->
+	<!--	</div>-->
+	<!--{/if}-->
 </div>
 <br />
 

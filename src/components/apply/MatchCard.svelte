@@ -22,23 +22,25 @@
 <style lang="scss">
     .select-item{
         text-align: center;
-        width: 90px;
+        width: 100px;
         height: 40px;
         line-height: 40px;
-        background-color: rgb(248 250 252);
-        border-radius: 6px;
-        transition: all linear 0.3s;
+        background-color: #F2F3F5;
+      color: #4E5969;
+        border-radius: 5px;
+        transition: all linear 0.2s;
         cursor: pointer;
 
         &:hover{
-            background-color: #c3dafe;
-			box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.132);
+          background-color: white;
+          color: #165DFF;
+          border: 1px solid #165DFF;
         }
     }
 
     .item-selected{
-        background-color: #60a5fa !important;
-        color: white;
+        background-color: #165DFF !important;
+        color: white !important;
     }
 
 </style>
