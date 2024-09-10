@@ -4,7 +4,7 @@
 	import MatchTable from '@/components/apply/MatchTable.svelte';
 	import { interviewers } from '../options'
 
-	let ifShowMatchTable = false;
+	let ifShowMatchTable = true;
 	let matchComplete = false;
 	let loading = false;
 
@@ -26,7 +26,16 @@
 	}
 </script>
 
-<div class="pick-view-match-button" on:click={showMatchTable}>契合度匹配</div>
+<div style="display: flex;align-items: center;margin-bottom: 20px;">
+	{#if !ifShowMatchTable}
+		<div style="height: 40px;margin-right: 20px;color: #4E5969;font-size: 20px;display: flex;align-items: center">
+			已匹配并对面试官排序 √
+		</div>
+	{/if}
+	<div id="button" class="pick-view-match-button" on:click={showMatchTable}>
+			契合度匹配
+	</div>
+</div>
 {#if ifShowMatchTable}
 	<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
 {/if}
@@ -39,7 +48,6 @@
 
 <style lang="scss">
 	.pick-view-match-button{
-		margin-bottom: 20px;
 		width: 150px;
 		height: 40px;
 		border-radius: 5px;

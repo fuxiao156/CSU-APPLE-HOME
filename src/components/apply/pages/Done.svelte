@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex flex-col justify-center items-center gap-2">
-	<p>请扫码或复制群号加入招新群，等候我们的通知</p>
+	<p>后续结果我们将在招新群中通知</p>
 	<Img clazz="w-96" src="apply/QQgroup.png" alt="qq chat group qrcode." />
 	<p>群号</p>
 	<CopyArea str="819706872" />

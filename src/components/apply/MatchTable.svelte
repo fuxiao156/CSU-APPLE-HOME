@@ -4,32 +4,11 @@
     import ToolTip from '@/components/global/ToolTip.svelte';
     import MatchCard from "./MatchCard.svelte";
     import { options, interviewers } from "./options";
-    import { createEventDispatcher } from 'svelte';
-    import { onMount } from 'svelte';
-	import { on } from 'ramda';
+    import {createEventDispatcher, onMount} from 'svelte';
     const dispatch = createEventDispatcher();
 
     let showIndex = 0;
     let matchAble = false;
-
-    function last(){
-        if(showIndex > 0){
-            let temp = showIndex
-            showIndex= -1;
-            setTimeout(() => {
-                showIndex = temp - 1;
-            }, 150);
-        }
-    }
-    function next(){
-        if(showIndex < options.length - 1){
-            let temp = showIndex;
-            showIndex = -1;
-            setTimeout(() => {
-                showIndex = temp + 1;
-            }, 150);
-        }
-    }
 
     function handleSelect(){
         matchAble = false;
@@ -42,6 +21,10 @@
             });
         });
     }
+
+    onMount(()=>{
+        handleSelect()
+    })
 
     function match(){
         if(matchAble === false){
@@ -84,17 +67,22 @@
 
 <div class="match-table" transition:fade={{ duration: 200}}>
     <div class="flex justify-between items-center w-full">
-        <div class="flex justify-start items-center gap-1">
+        <div class="flex items-center gap-1" style="width: 200px;">
             <ToolTip position="bottom">
                 <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
             </ToolTip>
-            <div class="transition duration-100 ease-linear">请选择你的技术方向与兴趣爱好</div>
+            <div class="transition duration-100 ease-linear">契合度匹配</div>
         </div>
-    <ToolTip text="关闭窗口" position="left">
-        <div class="flex gap-2 close-icon rounded-[20px]" on:click={()=>dispatch('closeMatchTable',{})}>
-            <XCircleIcon class="w-5 h-5" />
+        <div style="color: #4E5969">
+            请选择你的技术方向 - 兴趣爱好 - 未来道路
         </div>
-    </ToolTip>
+        <div style="width: 200px;">
+        </div>
+<!--    <ToolTip text="关闭窗口" position="left">-->
+<!--        <div class="flex gap-2 close-icon rounded-[20px]" on:click={()=>dispatch('closeMatchTable',{})}>-->
+<!--            <XCircleIcon class="w-5 h-5" />-->
+<!--        </div>-->
+<!--    </ToolTip>-->
 </div>
 <div class="card-area">
     {#each options as option,index}
@@ -132,6 +120,7 @@
       bottom: 0;
       z-index: 10;
       padding: 30px;
+      overflow: auto;
     }
     .close-icon{
         cursor: pointer;
@@ -149,7 +138,7 @@
         gap:4px;
     }
     .finish-button{
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       width: 150px;
       height: 40px;
       border-radius: 5px;
