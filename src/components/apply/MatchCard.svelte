@@ -13,8 +13,8 @@
     <div class="mt-6 flex flex-wrap gap-1 justify-center">
         {#each options as item,index}
             <div style="display: flex;flex-direction: column;margin: 5px">
-                <div style="display: flex;align-items: center;justify-content:center;background-color: {item.selected?item.color.selectedColor:item.color.color}" class="{item.selected? 'item-selected' : 'select-item'}" on:click={()=>selectItem(index)}>
-                    <img src="{item.icon}" alt="icon" style="width: 50px;height: 50px"/>
+                <div style="display: flex;; align-items: center;justify-content:center;background-color: {item.selected?item.color.selectedColor:item.color.color}" class="select-item" on:click={()=>selectItem(index)}>
+                    <img src="{item.icon}" alt="icon" style="width: 50px"/>
                 </div>
                 <div style="width: 90px;text-align: center;color: #4E5969">
                     {item.name}
@@ -29,30 +29,15 @@
         text-align: center;
         width: 90px;
         height: 90px;
+        transition: all 0.2s linear;
         line-height: 40px;
-      color: #4E5969;
+        color: #4E5969;
         border-radius: 20px;
-        transition: all 0.1s;
         cursor: pointer;
 
         &:hover{
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         }
-    }
-
-    .item-selected{
-      text-align: center;
-      width: 90px;
-      height: 90px;
-      line-height: 40px;
-        color: white;
-      border-radius: 20px;
-      transition: all 0.1s;
-      cursor: pointer;
-
-      &:hover{
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      }
     }
 
 </style>

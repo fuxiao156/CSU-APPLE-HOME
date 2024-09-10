@@ -26,25 +26,27 @@
 	}
 </script>
 
-<div style="display: flex;align-items: center;margin-bottom: 20px;">
-	{#if !ifShowMatchTable}
-		<div style="height: 40px;margin-right: 20px;color: #4E5969;font-size: 20px;display: flex;align-items: center">
-			已匹配并对面试官排序 √
+{#if !ifShowMatchTable}
+	<div transition:fly>
+		<div style="display: flex;align-items: center; margin-bottom: 20px;" class="justify-center">
+			<div style="height: 40px;margin-right: 20px;color: #4E5969;font-size: 20px;display: flex;align-items: center">
+				已匹配并对面试官排序 √
+			</div>
+			<div id="button" class="pick-view-match-button" on:click={showMatchTable}>
+					契合度匹配
+			</div>
 		</div>
-	{/if}
-	<div id="button" class="pick-view-match-button" on:click={showMatchTable}>
-			契合度匹配
+		<div class="ml-10 mr-10 flex flex-col justify-center items-center gap-10 md:flex-row md:flex-wrap transition-all duration-300 {loading?'opacity-0':''}">
+			{#each interviewers as card (card.code)}
+				<Interviewer ifShowTags={matchComplete} avatar={card.avatar} code={card.code} intros={card.intros} tags={card.tags} SignalCopy={card.Signal}/>
+			{/each}
+		</div>
 	</div>
-</div>
-{#if ifShowMatchTable}
-	<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
+	{:else}
+		<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
 {/if}
 
-<div transition:fly class="ml-10 mr-10 flex flex-col justify-center items-center gap-10 md:flex-row md:flex-wrap transition-all duration-300 {loading?'opacity-0':''}">
-	{#each interviewers as card (card.code)}
-		<Interviewer ifShowTags={matchComplete} avatar={card.avatar} code={card.code} intros={card.intros} tags={card.tags} SignalCopy={card.Signal}/>
-	{/each}
-</div>
+
 
 <style lang="scss">
 	.pick-view-match-button{

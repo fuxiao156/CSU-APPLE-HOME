@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { InformationCircleIcon, XCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
-    import { fade } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
     import ToolTip from '@/components/global/ToolTip.svelte';
     import MatchCard from "./MatchCard.svelte";
     import { options, interviewers } from "./options";
@@ -65,16 +65,18 @@
     }
 </script>
 
-<div class="match-table" transition:fade={{ duration: 200}}>
+<div class="match-table" transition:fly={{ duration: 300}}>
     <div class="flex justify-between items-center w-full">
         <div class="flex items-center gap-1" style="width: 200px;">
-            <ToolTip position="bottom">
-                <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+            <!-- <ToolTip position="bottom">
             </ToolTip>
-            <div class="transition duration-100 ease-linear">契合度匹配</div>
+            <div class="transition duration-100 ease-linear">契合度匹配</div> -->
         </div>
-        <div style="color: #4E5969">
-            请选择你的技术方向 - 兴趣爱好 - 未来道路
+        <div class="flex items-center gap-1">
+            <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+            <div style="color: #4E5969">
+                请选择你的技术方向 - 兴趣爱好 - 未来道路
+            </div>
         </div>
         <div style="width: 200px;">
         </div>
@@ -108,19 +110,18 @@
 
 <style lang="scss">
     .match-table{
-        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         background-color: white;
         top:56px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 10;
-      padding: 30px;
-      overflow: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        padding: 0 30px;
+        overflow: auto;
     }
     .close-icon{
         cursor: pointer;
@@ -136,6 +137,7 @@
         justify-content: center;
         width: 100%;
         gap:4px;
+        margin-top: 20px;
     }
     .finish-button{
       margin-bottom: 20px;
