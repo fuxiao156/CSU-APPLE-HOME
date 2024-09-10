@@ -3,7 +3,9 @@
 	import Interviewer from '@/components/apply/Interviewer.svelte';
 	import MatchTable from '@/components/apply/MatchTable.svelte';
 	import { interviewers } from '../options'
+	import {onMount} from "svelte";
 
+	let ifMatch=false
 	let ifShowMatchTable = false;
 	let matchComplete = false;
 	let loading = false;
@@ -16,6 +18,7 @@
 		loading = true;
 		ifShowMatchTable = false;
 		matchComplete = false;
+		ifMatch=true;
 		setTimeout(() => {
 			loading = false;
 			setTimeout(() => {
@@ -24,22 +27,40 @@
 		}, 300);
 		window.scrollTo({ behavior: 'smooth', top: 0 });
 	}
+	onMount(()=>{
+		showMatchTable()
+	})
 </script>
 
-<div class="pick-view-match-button" on:click={showMatchTable}>契合度匹配</div>
+<div style="display: flex;align-items: center;margin-bottom: 20px;">
+	{#if ifMatch}
+		<div style="height: 40px;margin-right: 20px;color: #4E5969;font-size: 20px;display: flex;align-items: center">
+			已匹配并对面试官排序 √
+		</div>
+	{/if}
+	<div id="button" class="pick-view-match-button" on:click={showMatchTable}>
+		{#if !ifMatch}
+		    契合度匹配
+		{/if}
+		{#if ifMatch}
+			再次匹配
+		{/if}
+	</div>
+</div>
 {#if ifShowMatchTable}
 	<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
 {/if}
 
-<div transition:fly class="ml-10 mr-10 flex flex-col justify-center items-center gap-10 md:flex-row md:flex-wrap transition-all duration-300 {loading?'opacity-0':''}">
-	{#each interviewers as card (card.code)}
-		<Interviewer ifShowTags={matchComplete} avatar={card.avatar} code={card.code} intros={card.intros} tags={card.tags} SignalCopy={card.Signal}/>
-	{/each}
-</div>
+{#if ifMatch}
+	<div transition:fly class="ml-10 mr-10 flex flex-col justify-center items-center gap-10 md:flex-row md:flex-wrap transition-all duration-300 {loading?'opacity-0':''}">
+		{#each interviewers as card (card.code)}
+			<Interviewer ifShowTags={matchComplete} avatar={card.avatar} code={card.code} intros={card.intros} tags={card.tags} SignalCopy={card.Signal}/>
+		{/each}
+	</div>
+{/if}
 
 <style lang="scss">
 	.pick-view-match-button{
-		margin-bottom: 20px;
 		width: 150px;
 		height: 40px;
 		border-radius: 5px;

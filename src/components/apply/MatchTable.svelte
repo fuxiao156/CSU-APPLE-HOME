@@ -5,29 +5,19 @@
     import MatchCard from "./MatchCard.svelte";
     import { options, interviewers } from "./options";
     import { createEventDispatcher } from 'svelte';
-    import { onMount } from 'svelte';
-	import { on } from 'ramda';
     const dispatch = createEventDispatcher();
 
     let showIndex = 0;
     let matchAble = false;
+    let keyWord1=[]
+    let keyWord2=[]
+    let keyWord3=[]
 
-    function last(){
-        if(showIndex > 0){
-            let temp = showIndex
-            showIndex= -1;
-            setTimeout(() => {
-                showIndex = temp - 1;
-            }, 150);
-        }
-    }
-    function next(){
-        if(showIndex < options.length - 1){
-            let temp = showIndex;
-            showIndex = -1;
-            setTimeout(() => {
-                showIndex = temp + 1;
-            }, 150);
+    function changeKeyWord(index,value){
+        switch (index){
+            case 1:keyWord1=value;break;
+            case 2:keyWord2=value;break;
+            case 3:keyWord3=value;break
         }
     }
 
@@ -88,33 +78,40 @@
             <ToolTip position="bottom">
                 <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
             </ToolTip>
-            <div class="transition duration-100 ease-linear">请选择你的技术方向与兴趣爱好</div>
+            <div class="transition duration-100 ease-linear">请选择你的关键词</div>
         </div>
-    <ToolTip text="关闭窗口" position="left">
-        <div class="flex gap-2 close-icon rounded-[20px]" on:click={()=>dispatch('closeMatchTable',{})}>
-            <XCircleIcon class="w-5 h-5" />
+        <div style="text-align: left;color: #4E5969">
+            技术方向 - 兴趣爱好 - 未来展望
         </div>
-    </ToolTip>
+    <div style="width: 160px;display: flex;justify-content: end">
+<!--        <ToolTip text="关闭窗口" position="left">-->
+<!--            <div class="flex gap-2 close-icon rounded-[20px]" on:click={()=>dispatch('closeMatchTable',{})}>-->
+<!--                <XCircleIcon class="w-5 h-5" />-->
+<!--            </div>-->
+<!--        </ToolTip>-->
+    </div>
 </div>
 <div class="card-area">
     {#each options as option,index}
-        {#if showIndex == 0}
-            <MatchCard on:itemSelect={handleSelect} options={option.options}></MatchCard>
+        {#if showIndex === 0}
+            <MatchCard changeKeyWord={changeKeyWord} on:itemSelect={handleSelect} options={option.options}></MatchCard>
         {/if}
     {/each}
     {#each options as option,index}
-        {#if showIndex == 1}
-            <MatchCard on:itemSelect={handleSelect} options={option.options}></MatchCard>
+        {#if showIndex === 1}
+            <MatchCard changeKeyWord={changeKeyWord} on:itemSelect={handleSelect} options={option.options}></MatchCard>
         {/if}
     {/each}
     {#each options as option,index}
-        {#if showIndex == 2}
-            <MatchCard on:itemSelect={handleSelect} options={option.options}></MatchCard>
+        {#if showIndex === 2}
+            <MatchCard changeKeyWord={changeKeyWord} on:itemSelect={handleSelect} options={option.options}></MatchCard>
         {/if}
     {/each}
 </div>
 <div class="button-group">
+    <div style="position: relative;bottom:150px;margin-left: 50px;background-image: url('/apply/blowing.png');width: 450px;height: 220px;background-size: 220px;background-repeat: no-repeat"></div>
     <div class="finish-button" on:click={match}>匹配</div>
+    <div style="position: relative;bottom:150px;width: 450px;height: 220px;color: #4E5969;"></div>
 </div>
 </div>
 
@@ -144,12 +141,12 @@
     }
     .button-group{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         width: 100%;
         gap:4px;
     }
     .finish-button{
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       width: 150px;
       height: 40px;
       border-radius: 5px;
