@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { fly,fade } from 'svelte/transition';
 	import Interviewer from '@/components/apply/Interviewer.svelte';
+	import { InformationCircleIcon } from '@rgossiaux/svelte-heroicons/outline';
 	import MatchTable from '@/components/apply/MatchTable.svelte';
 	import { interviewers } from '../options'
+    import ToolTip from '@/components/global/ToolTip.svelte';
 
 	let ifShowMatchTable = true;
 	let matchComplete = false;
@@ -28,10 +30,10 @@
 
 {#if !ifShowMatchTable}
 	<div transition:fly>
-		<div style="display: flex;align-items: center; margin-bottom: 20px;" class="justify-center">
-			<div style="height: 40px;margin-right: 20px;color: #4E5969;font-size: 20px;display: flex;align-items: center">
-				已匹配并对面试官排序 √
-			</div>
+		<div style="display: flex;align-items: center; margin-bottom: 20px;" class="justify-center gap-4">
+            <ToolTip  text="已根据选择结果对面试官排序" position="left">
+                <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+            </ToolTip>
 			<div id="button" class="pick-view-match-button" on:click={showMatchTable}>
 					契合度匹配
 			</div>

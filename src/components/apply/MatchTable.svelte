@@ -27,9 +27,9 @@
     })
 
     function match(){
-        if(matchAble === false){
-            return;
-        }
+        // if(matchAble === false){
+        //     return;
+        // }
         let selectItem = new Set();
         options.forEach(option => {
             option.options.forEach(item => {
@@ -73,7 +73,9 @@
             <div class="transition duration-100 ease-linear">契合度匹配</div> -->
         </div>
         <div class="flex items-center gap-1">
-            <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+            <ToolTip text="我们会根据你选择的结果，调整面试官优先级" position="left">
+                <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+            </ToolTip>
             <div style="color: #4E5969">
                 请选择你的技术方向 - 兴趣爱好 - 未来道路
             </div>

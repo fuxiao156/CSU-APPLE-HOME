@@ -18,7 +18,7 @@
 	transition:fly={{duration: 400, x: 100}}
 	class="bg-slate-50 relative w-72 p-5 flex-grow-0 flex-shrink-0 rounded-lg flex flex-col justify-center items-center hover:shadow-lg transition-shadow duration-300 overflow-hidden"
 >
-	<InformationCircleIcon class="w-5 h-5 top-5 left-5 absolute transition duration-300 ease-linear"/>
+	<!-- <InformationCircleIcon class="w-5 h-5 top-5 left-5 absolute transition duration-300 ease-linear"/> -->
 	<CardTitleBlock>
 	{#if !SignalCopy}
 		<!-- <Img clazz="w-32 h-32 rounded-full" src={avatar} alt="avatar" /> -->
