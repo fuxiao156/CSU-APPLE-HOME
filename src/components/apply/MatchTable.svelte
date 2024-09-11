@@ -28,7 +28,7 @@
 
     function match(){
         if(matchAble === false){
-            window.alert('请先选择关键词！')
+            window.alert('请先选择你所感兴趣的模块！')
             return;
         }
         let selectItem = new Set();
