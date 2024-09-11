@@ -31,10 +31,10 @@
 {#if !ifShowMatchTable}
 	<div transition:fly>
 		<div style="display: flex;align-items: center; margin-bottom: 20px;" class="justify-center gap-4">
-            <ToolTip  text="已根据选择结果对面试官排序" position="left">
-                <InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
-            </ToolTip>
-			<div id="button" class="pick-view-match-button" on:click={showMatchTable}>
+			<div id="button" class="pick-view-match-button flex justify-center gap-1" on:click={showMatchTable}>
+				<ToolTip  text="根据选择结果，排列面试官优先级" position="left">
+					<InformationCircleIcon class="w-5 h-5 cursor-pointer hover:text-blue-500 transition duration-300 ease-linear" />
+				</ToolTip>
 					契合度匹配
 			</div>
 		</div>
