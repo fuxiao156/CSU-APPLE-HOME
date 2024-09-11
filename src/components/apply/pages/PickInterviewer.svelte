@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { fly,fade } from 'svelte/transition';
 	import Interviewer from '@/components/apply/Interviewer.svelte';
 	import MatchTable from '@/components/apply/MatchTable.svelte';
 	import { interviewers } from '../options'
@@ -43,7 +43,9 @@
 		</div>
 	</div>
 	{:else}
-		<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
+		<div transition:fly={{duration:700, y:3000}}>
+			<MatchTable on:closeMatchTable={()=> ifShowMatchTable = !ifShowMatchTable} on:match={match}/>
+		</div>
 {/if}
 
 
