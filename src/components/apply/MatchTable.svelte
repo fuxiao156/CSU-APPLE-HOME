@@ -28,6 +28,7 @@
 
     function match(){
         if(matchAble === false){
+            window.alert('请先选择关键词！')
             return;
         }
         let selectItem = new Set();
